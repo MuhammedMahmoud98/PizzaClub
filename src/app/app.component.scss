@@ -1,0 +1,145 @@
+@import "../assets/scss/variables";
+
+@mixin flex-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+@mixin rounded-div {
+  padding: 0.4rem 0.6rem;
+  border-radius: $rounded-radius;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+@mixin  links-hover {
+  &:hover {
+    background-color: $very-light-black;
+    cursor: pointer;
+  }
+
+  &:active {
+    transform: scale(0.91);
+  }
+}
+
+.example-container {
+  background-color: $light-blue;
+  position: relative;
+  .example-sidenav-content {
+    background-color: #fff;
+    box-shadow: $nav-shadow;
+
+    .pizza-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      height: 60px;
+
+      .store-name {
+        margin: 0;
+      }
+
+      .nav-routes {
+        list-style: none;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        padding: 0;
+
+        .route {
+          margin: 0 0.5rem;
+          padding: 0.7rem 1rem;
+          border-radius: $border-radius;
+          transition: $smooth-transition;
+          text-decoration: none;
+          outline: none;
+          display: inline-block;
+          color: $semi-black;
+          @include links-hover;
+          &:active {
+            transform: scale(0.91);
+          }
+        }
+      }
+
+      .cart {
+        display: flex;
+        align-items: center;
+        .my-cart {
+          font-weight: normal;
+          margin: 0.5rem;
+        }
+
+        .phone-bars {
+          padding: 0.4rem 0.6rem;
+          margin-left: 0.5rem;
+          border-radius: $rounded-radius;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .mobile-navigator {
+    position: fixed;
+    height: 100vh;
+    width: 270px;
+    background-color: #fff;
+    box-shadow: $nav-shadow;
+    z-index: 50;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    .upper-part {
+      margin: 0.2rem 0.3rem;
+      @include flex-right;
+      .close-icon {
+        @include rounded-div;
+        padding: 0.5rem;
+      }
+    }
+    .store-name {
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+    }
+    .side-body {
+      margin-top: 1rem;
+      .side-navigator {
+        padding: 0.5rem 1rem;
+        display: block;
+        transition: $smooth-transition;
+        @include links-hover;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .example-container {
+    .example-sidenav-content {
+      .pizza-nav {
+        .store-name {
+
+        }
+        .nav-routes {
+          display: none;
+          .route {
+          }
+        }
+
+        .cart {
+          .my-cart {
+
+          }
+        }
+      }
+    }
+  }
+}

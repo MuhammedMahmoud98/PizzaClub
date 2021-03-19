@@ -1,1 +1,102 @@
 /* You can add global styles to this file, and also import other style files */
+@import "assets/scss/variables";
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+.image-responsive {
+  height: 100%;
+  width: 100%;
+  display: block;
+}
+
+.separator {
+  margin: auto;
+  width: 50%;
+  height: 1px;
+  background-color: $light-black;
+}
+
+.pizza-card {
+  border-radius: $border-radius;
+  position: relative;
+  background-color: #fff;
+  box-shadow: $nav-shadow;
+
+  .pizza-code {
+    position: absolute;
+    top: 5%;
+    left: 0;
+    z-index: 49;
+    height: 20px;
+    width: auto;
+    padding: 0rem 0.4rem;
+    background-color: #fff;
+    border-top-right-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+  }
+  .image-part {
+    overflow: hidden;
+    height: 250px;
+    img {
+      border-top-left-radius: $border-radius;
+      border-top-right-radius: $border-radius;
+      transition: $smooth-transition;
+    }
+    &:hover {
+      img {
+        transform: scale(1.1);
+      }
+    }
+  }
+  .card-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+    i {
+      color: $light-blue;
+    }
+    .pizza-name {
+      color: $off-white;
+    }
+  }
+
+  .card-delete {
+    background-color: rgba($semi-orange, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .delete-btn {
+      background-color: rgba($semi-orange, 0.8);
+      outline: none;
+      padding: 0.5rem;
+      border: none;
+      color: #fff;
+      border-radius: $border-radius;
+      margin: 0.3rem 0rem;
+      cursor: pointer;
+    }
+  }
+}
+
+
+.small-image {
+  width: 50px;
+  height: 50px;
+  border-radius: $border-radius;
+}
+// ANGULAR MATERIAL MODIFICATIONS
+
+.example-full-width {
+  width: 100%;
+}
+
+

@@ -1,0 +1,13 @@
+<div class="shop-card">
+  <div class="image-part">
+    <img [src]="product?.image" class="image-responsive" [alt]="product.image">
+  </div>
+  <div class="card-bottom">
+    <span class="ml-2" class="pizza-name">{{product?.name}} (<span>{{product?.quantity}}</span>)</span>
+    <div class="pizza-price"><i class="fal fa-pizza"></i>{{product?.price | currency:'USD'}}</div>
+  </div>
+  <div class="card-actions">
+    <button *ngIf="!product?.addedToCart" (click)="addToCart(product)"  mat-raised-button color="warn" class="shop-btn" style="width: 100%"><i class="fal fa-cart-plus mr-1"></i> Add to Cart</button>
+    <button *ngIf="product?.addedToCart" mat-raised-button color="basic" class="shop-btn"><i class="fal fa-trash mr-1"></i> Remove from Cart</button>
+  </div>
+</div>

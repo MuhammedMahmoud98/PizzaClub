@@ -1,0 +1,40 @@
+<section class="admin">
+  <app-section-header [title]="'Admin Products'"></app-section-header>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-3 mb-3" [@translateAndScale] *ngFor="let product of (products$ | async);trackBy:trackByFn;let i = index">
+        <div class="pizza-card">
+          <div class="pizza-code">
+            <i class="fal fa-hashtag"></i>
+            <span>{{product?.code | uppercase}}</span>
+          </div>
+          <div class="image-part">
+            <img [src]="product?.image" class="image-responsive" [alt]="product?.name">
+          </div>
+          <div class="card-bottom">
+            <span class="ml-2" class="pizza-name">{{product?.name}} (<span>{{product?.quantity}}</span>)</span>
+            <div class="pizza-price"><i class="fal fa-pizza"></i>{{product?.price | currency:'USD'}}</div>
+          </div>
+          <div class="card-delete">
+            <button mat-ripple class="delete-btn" color="warn" (click)="deleteProduct(product, i)">
+              <i class="fal fa-trash"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Product success alert -->
+<app-alert [alertType]="'success'" [errorBoolean]="productAdded$" [errorMessage]="'Product added Successfully!'"></app-alert>
+
+<!-- Product Delete alert -->
+<app-alert [alertType]="'success'" [errorBoolean]="productDeleted$" [errorMessage]="'Product Deleted Successfully!'"></app-alert>
+
+
+<!-- Error handling alert -->
+<app-alert [alertType]="'danger'" [errorBoolean]="errorOccurred$" [errorMessage]="'Oops! Something went wrong'"></app-alert>
+<button class="add-product" mat-raised-button color="warn" (click)="openDialog()">
+  <i class="fal fa-plus"></i>
+</button>

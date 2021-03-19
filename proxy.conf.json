@@ -1,0 +1,10 @@
+{
+  "/products": {
+    "target": "http://localhost:3000",
+    "secure": false
+  },
+  "/cart": {
+    "target": "http://localhost:3000",
+    "secure": false
+  }
+}

@@ -1,0 +1,43 @@
+@import "../../../assets/scss/variables";
+
+
+.shop-card {
+  border-radius: $border-radius;
+  position: relative;
+  background-color: #fff;
+  box-shadow: $nav-shadow;
+  .image-part {
+    overflow: hidden;
+    height: 250px;
+    img {
+      border-top-left-radius: $border-radius;
+      border-top-right-radius: $border-radius;
+      transition: $smooth-transition;
+    }
+    &:hover {
+      img {
+        transform: scale(1.1);
+      }
+    }
+  }
+  .card-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+    i {
+      color: $light-blue;
+    }
+    .pizza-name {
+      color: $off-white;
+    }
+  }
+  .card-actions {
+    .shop-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
